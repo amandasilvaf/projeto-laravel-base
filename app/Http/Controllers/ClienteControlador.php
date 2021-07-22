@@ -132,6 +132,11 @@ class ClienteControlador extends Controller
      */
     public function destroy($id)
     {
-        //
+        $clientes = session('clientes');
+        $ids = array_column($clientes, 'id');
+        $index = array_search($id, $ids);
+        array_splice($clientes, $index, 1); // 1 é o nº de dígitos a serem apagados a partir da posição do $index
+        session(['clientes' => $clientes]);
+        return redirect()->route('clientes.index');
     }
 }
