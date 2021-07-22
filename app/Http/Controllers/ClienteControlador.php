@@ -44,12 +44,15 @@ class ClienteControlador extends Controller
         */
         // Este retorno de cima é equivalente a este debaixo (compactado):
         return view('clientes.index', compact(['clientes', 'titulo']));
-        
+
+    
         /*  e também poderia retornar assim!
         return view('clientes.index')
         ->with("clientes", $clientes)
         ->with('titulo', $titulo);
        */
+
+       // Teste commit de funcao do controller
     }
 
     /**
@@ -87,7 +90,7 @@ class ClienteControlador extends Controller
         Veja a seguir: PS: o curso podia trabalhar com o real e não com simulações :/*/
 
         $clientes = session('clientes');
-        $id = end($clientes)['id'] + 1;
+        $id = end($clientes)['id']+ 1;
         $nome = $request->nome;
         $dados = ["id"=>$id, "nome"=>$nome];
         $clientes[] = $dados;
