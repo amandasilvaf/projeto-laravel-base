@@ -138,5 +138,6 @@ class ClienteControlador extends Controller
         array_splice($clientes, $index, 1); // 1 é o nº de dígitos a serem apagados a partir da posição do $index
         session(['clientes' => $clientes]);
         return redirect()->route('clientes.index');
+        // teste commit
     }
 }
