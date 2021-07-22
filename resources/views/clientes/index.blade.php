@@ -1,5 +1,6 @@
 @extends('layouts.principal')
 @section('conteudo')
+@section('titulo', 'Clientes - Listar')
 
     <h1>{{$titulo}}:</h1>
     <a href="{{ route('clientes.create')}}">NOVO CLIENTE</a>

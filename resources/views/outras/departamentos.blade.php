@@ -1,5 +1,6 @@
 @extends('layouts.principal')
 @section('conteudo')
+@section('titulo', 'Departamentos')
     <h3>Departamentos:</h3>
 
     <ul>
