@@ -37,7 +37,19 @@ class ClienteControlador extends Controller
         sempre que chama o controlador (pois não estamos trabalhando
         com banco).*/
         $clientes = session('clientes');
-        return view('clientes.index', compact(['clientes']));
+        $titulo = "Todos os clientes:";
+        /*
+        return view('clientes.index',
+        ['clientes'=>$clientes, 'titulo'=>$titulo]);
+        */
+        // Este retorno de cima é equivalente a este debaixo (compactado):
+        return view('clientes.index', compact(['clientes', 'titulo']));
+        
+        /*  e também poderia retornar assim!
+        return view('clientes.index')
+        ->with("clientes", $clientes)
+        ->with('titulo', $titulo);
+       */
     }
 
     /**

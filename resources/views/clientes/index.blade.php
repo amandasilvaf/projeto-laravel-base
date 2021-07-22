@@ -1,4 +1,4 @@
-<h1>Clientes: listando de dentro da View Clientes.Index</h1>
+<h1>{{$titulo}}:</h1>
 <a href="{{ route('clientes.create' )}}">NOVO CLIENTE</a>
 <ul>
     @foreach($clientes as $c)
