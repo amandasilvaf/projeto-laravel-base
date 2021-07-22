@@ -75,7 +75,7 @@ class ClienteControlador extends Controller
         Veja a seguir: PS: o curso podia trabalhar com o real e não com simulações :/*/
 
         $clientes = session('clientes');
-        $id = count($clientes) + 1;
+        $id = end($clientes)['id'] + 1;
         $nome = $request->nome;
         $dados = ["id"=>$id, "nome"=>$nome];
         $clientes[] = $dados;
@@ -92,7 +92,8 @@ class ClienteControlador extends Controller
     public function show($id)
     {
         $clientes = session('clientes');
-        $cliente = $clientes[$id - 1];
+        $index = $this->getIndex($id, $clientes);
+        $cliente = $clientes[$index];
         return view('clientes.info', compact(['cliente']));
     }
 
@@ -105,7 +106,8 @@ class ClienteControlador extends Controller
     public function edit($id)
     {
         $clientes = session('clientes');
-        $cliente = $clientes[$id - 1];
+        $index = $this->getIndex($id, $clientes);
+        $cliente = $clientes[$index];
         return view('clientes.edit', compact(['cliente']));
     }
 
@@ -119,7 +121,8 @@ class ClienteControlador extends Controller
     public function update(Request $request, $id)
     {
         $clientes = session('clientes');
-        $clientes[$id - 1]['nome'] = $request->nome;
+        $index = $this->getIndex($id, $clientes);
+        $clientes[$index]['nome'] = $request->nome;
         session(['clientes' => $clientes]);
         return redirect()->route('clientes.index');
     }
@@ -133,11 +136,16 @@ class ClienteControlador extends Controller
     public function destroy($id)
     {
         $clientes = session('clientes');
-        $ids = array_column($clientes, 'id');
-        $index = array_search($id, $ids);
+        $index = $this->getIndex($id, $clientes);
         array_splice($clientes, $index, 1); // 1 é o nº de dígitos a serem apagados a partir da posição do $index
         session(['clientes' => $clientes]);
         return redirect()->route('clientes.index');
         // teste commit
+    }
+
+    private function getIndex($id, $clientes){
+        $ids = array_column($clientes, 'id');
+        $index = array_search($id, $ids);
+        return $index;
     }
 }
