@@ -2,7 +2,7 @@
 @section('conteudo')
 
     <h1>{{$titulo}}:</h1>
-    <a href="{{ route('clientes.create' )}}">NOVO CLIENTE</a>
+    <a href="{{ route('clientes.create')}}">NOVO CLIENTE</a>
 
     //Todos os comandos do template Blade começam com @
     @if(count($clientes) > 0)

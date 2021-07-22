@@ -61,9 +61,9 @@ Route::prefix('/app')->group(function(){
 });
 
 // Nomeando as rotas
-Route::get('/produtos', function() {
+/*Route::get('/produtos', function() {
     return view('produtos');
-})->name('meusprodutos');
+})->name('meusprodutos');*/
 
 // Redirecionando Requisições
 // ('de onde veio', 'pra onde vai', 301?? )
@@ -116,4 +116,13 @@ Route::get('multiplicar/{n1}/{n2}', 'App\Http\Controllers\MeuControlador@multipl
 // utilizando o resource (mesmo atributo usado para criar o controllador).
 // php artisan make:controller ClienteControlador --resource
 Route::resource('clientes', 'App\Http\Controllers\ClienteControlador');
+
+
+Route::get('produtos', function() {
+    return view('outras.produtos');
+})->name('produtos');
+
+Route::get('departamentos', function() {
+    return view('outras.departamentos');
+})->name('departamentos');
 
