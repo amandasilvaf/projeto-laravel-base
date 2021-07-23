@@ -123,6 +123,6 @@ Route::get('produtos', function() {
 })->name('produtos');
 
 Route::get('departamentos', function() {
-    return view('outras.departamentos');
+    return view('outras.departamentos', ["tipo" => "warning"]);
 })->name('departamentos');
 

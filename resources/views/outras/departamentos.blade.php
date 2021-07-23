@@ -11,19 +11,20 @@
     </ul>
 
 
-@component('componentes.alerta', ['titulo'=> 'ERROR', 'tipo'=>'error'])
-<p><strong>Erro inesperado</strong></p>
-<p>Ocorreu um erro inesperado</p>
-@endcomponent
 
-@component('componentes.alerta', ['titulo'=> 'ALERTA', 'tipo'=>'warning'])
-<p><strong>Alerta para vírus</strong></p>
-<p>Seu pc está sem antivírus</p>
-@endcomponent
+<x-component-alert tipo="error" titulo="ERRO">
+ <p><strong>Erro inesperado!!</strong></p>
+ <p>teste</p>
+</x-component-alert>
 
-@component('componentes.alerta', ['titulo'=> 'SUCESSO', 'tipo'=>'success'])
-<p><strong>Sucesso ao salvar</strong></p>
-<p>Arquivo salvo com sucesso</p>
-@endcomponent
+<x-component-alert tipo="success" titulo="SUCESSO">
+    <p><strong>Sucesso ao salvar!</strong></p>
+    <p>teste</p>
+</x-component-alert>
+
+<x-component-alert tipo="warning" titulo="ALERTA">
+    <p><strong>Alerta para ataques!</strong></p>
+    <p>teste</p>
+</x-component-alert>
 
 @endsection
