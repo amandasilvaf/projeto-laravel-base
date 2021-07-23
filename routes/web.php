@@ -126,3 +126,7 @@ Route::get('departamentos', function() {
     return view('outras.departamentos', ["tipo" => "warning"]);
 })->name('departamentos');
 
+
+Route::get('opcoes/{opcao?}', function($opcao=null) {
+    return view('outras.opcoes', compact(['opcao']));
+})-> name('opcoes');

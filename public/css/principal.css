@@ -91,3 +91,24 @@
   margin-bottom: 10px;
 }
 
+.options a
+{
+    display: block;
+    width: 200px;
+    height: 20px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.options li
+{
+    list-style: none;
+}
+
+.selected {
+    border-style: solid;
+    border-width: 2px;
+}
