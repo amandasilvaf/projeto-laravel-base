@@ -9,4 +9,9 @@
         <li>Acessórios</li>
     </ul>
 
+@component('componentes.alerta')
+    
+@endcomponent
+
+
 @endsection

@@ -48,3 +48,46 @@
 {
   background-color: #c0d4f3;
 }
+
+/* CSS DOS COMPONENTES:*/
+
+.box {
+  -webkit-box-shadow: 10px 10px 5px -4px rgba(201,201,201,0.88);
+  -moz-box-shadow: 10px 10px 5px -4px rgba(201,201,201,0.88);
+  box-shadow: 10px 10px 5px -4px rgba(201,201,201,0.88);
+  min-height: 40px;
+  margin: 8px;
+}
+
+.info {
+  background-color: #78b9eb;
+}
+
+.success {
+  background-color: #5ed18c;
+}
+
+.error {
+  background-color: #ffa8b4;
+}
+
+.warning {
+  background-color: #ffe4a6;
+}
+
+.title {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #000000;
+  font-weight: 700;
+  text-decoration: underline solid rgb(68, 68, 68);
+  font-style: italic;
+}
+
+.msg {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
