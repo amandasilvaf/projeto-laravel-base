@@ -123,10 +123,16 @@ Route::get('produtos', function() {
 })->name('produtos');
 
 Route::get('departamentos', function() {
-    return view('outras.departamentos', ["tipo" => "warning"]);
+    return view('outras.departamentos');
 })->name('departamentos');
 
 
 Route::get('opcoes/{opcao?}', function($opcao=null) {
     return view('outras.opcoes', compact(['opcao']));
 })-> name('opcoes');
+
+
+
+Route::get('bootstrap', function() {
+    return view('outras.exemploBootstrap');
+});

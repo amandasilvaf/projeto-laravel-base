@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Aqui vamos registrar os componentes da aplicação
+        // Blade::component('nomeComponente', Component::class);
        Blade::component('component-alert', Alert::class);
     }
 }
