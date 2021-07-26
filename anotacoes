@@ -2,3 +2,22 @@ Migrations:
 
 php artisan make:migration nome_migration 
 
+php artisan migrate 
+OBS:o arquivo .env deve estar configurado com o nome do bando, usuário e senha
+
+mysql -u user -p
+
+Para usar a base de dados:
+use nome_do_banco; 
+
+Para exibir as tabelas da base de dados:
+show tables; 
+
+Para detalhar a migration:
+describe migrations;
+
+Para detalhar uma tabela:
+describe nome_da_table;
+
+Para desfazer a última modificacao
+php artisan migrate:rollback 
