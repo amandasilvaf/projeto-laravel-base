@@ -2,6 +2,7 @@ Migrations:
 
 php artisan make:migration nome_migration 
 
+Para executar as migracoes pendentes:
 php artisan migrate 
 OBS:o arquivo .env deve estar configurado com o nome do bando, usuário e senha
 
