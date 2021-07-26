@@ -1,0 +1,4 @@
+Migrations:
+
+php artisan make:migration nome_migration 
+

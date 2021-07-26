@@ -29,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
         // Aqui vamos registrar os componentes da aplicação
         // Blade::component('nomeComponente', Component::class);
        Blade::component('component-alert', Alert::class);
+
+       \Illuminate\Support\Facades\Schema::defaultStringLength(191);
     }
 }
