@@ -22,3 +22,18 @@ describe nome_da_table;
 
 Para desfazer a última modificacao
 php artisan migrate:rollback 
+
+--- Usando Docker como cliente
+
+SUBIR CONTAINERS
+
+docker-compose up -d 
+
+ENTRAR NO CONTAINER
+docker exec -u 1000 -it dev_php bash |||| (id ou name do container)
+
+aqui posso executar meus comandos php
+
+PARAR CONTAINER
+
+docker-compose down 

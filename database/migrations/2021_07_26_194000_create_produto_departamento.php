@@ -17,9 +17,9 @@ class CreateProdutoDepartamento extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('departamento_id');
             $table->foreign('product_id')->references('id')
-                ->on('products');
+                ->on('products')->onDelete('cascade');
             $table->foreign('departamento_id')->references('id')
-                ->on('departamentos');
+                ->on('departamentos')->onDelete('cascade');
             $table->primary(['product_id', 'departamento_id']);
         });
     }

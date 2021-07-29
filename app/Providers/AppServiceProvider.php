@@ -30,6 +30,6 @@ class AppServiceProvider extends ServiceProvider
         // Blade::component('nomeComponente', Component::class);
        Blade::component('component-alert', Alert::class);
 
-       \Illuminate\Support\Facades\Schema::defaultStringLength(191);
+        //  \Illuminate\Support\Facades\Schema::defaultStringLength(191);
     }
 }
