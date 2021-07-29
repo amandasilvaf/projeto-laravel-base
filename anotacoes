@@ -47,4 +47,6 @@ php artisan migrate:refresh
 OBS: o método down() das migrations será chamado, 
 depois o método up() das mesmas.
 
--------- FIM MIGRATIONS ------------------
+---------- FIM MIGRATIONS ------------------
+
+
