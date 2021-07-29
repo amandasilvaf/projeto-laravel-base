@@ -1,11 +1,18 @@
-Migrations:
+----- USANDO O DOCKER COMO CLIENTE ---------
 
-php artisan make:migration nome_migration 
+SUBIR CONTAINERS
+docker-compose up -d 
 
-Para executar as migracoes pendentes:
-php artisan migrate 
-OBS:o arquivo .env deve estar configurado com o nome do bando, usuário e senha
+ENTRAR NO CONTAINER
+docker exec -u 1000 -it dev_php bash |(em que dev_php é o nome do container, e tbm poderia se seu ID)
 
+PARAR CONTAINER (sempre ao final do dia de trabalho, para n dar conflito de network)
+docker-compose down 
+
+--------- FIM USANDO DOCKER COMO CLIENTE ----------
+
+
+---- ACESSANDO O BANCO MYSQL NO TERMINAL ---
 mysql -u user -p
 
 Para usar a base de dados:
@@ -20,20 +27,24 @@ describe migrations;
 Para detalhar uma tabela:
 describe nome_da_table;
 
-Para desfazer a última modificacao
+---- FIM ACESSANDO BANCO MYSQL NO TERMINAL ---
+
+
+----------- MIGRATIONS ------------
+
+Criar migration
+php artisan make:migration nome_migration 
+
+Para executar as migracoes pendentes:
+php artisan migrate 
+OBS:o arquivo .env deve estar configurado com o nome do bando, usuário e senha
+
+Para desfazer a última migrate (que pode ter executado varias migrations simultaneamente)
 php artisan migrate:rollback 
 
---- Usando Docker como cliente
+Para desfazer e refazer todas as migrates
+php artisan migrate:refresh 
+OBS: o método down() das migrations será chamado, 
+depois o método up() das mesmas.
 
-SUBIR CONTAINERS
-
-docker-compose up -d 
-
-ENTRAR NO CONTAINER
-docker exec -u 1000 -it dev_php bash |||| (id ou name do container)
-
-aqui posso executar meus comandos php
-
-PARAR CONTAINER
-
-docker-compose down 
+-------- FIM MIGRATIONS ------------------
