@@ -17,16 +17,12 @@ class CreateProducts extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->integer('estoque');
-            $table->double('preco');
+            $table->string('descricao')->nullable();
+            $table->double('valor-atual');
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+     
     public function down()
     {
         Schema::dropIfExists('products');

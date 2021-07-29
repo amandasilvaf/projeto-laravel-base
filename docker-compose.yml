@@ -22,8 +22,12 @@ services:
     build:
       context: .docker/postgres
       dockerfile: Dockerfile
+      # args:
+      #   UID: 1000
+      #   GID: 1000
     ports:
       - 5432:5432
+    
     volumes:
       - .docker/postgres/data:/var/lib/postgresql/data
       - .docker/postgres/scripts:/etc/postgresql/scripts

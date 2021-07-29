@@ -10,3 +10,5 @@ create database banco-curso;
 docker-compose down
 docker ps
 exit;
+echo "Ola, Mundo"
+exit
