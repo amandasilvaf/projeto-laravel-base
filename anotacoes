@@ -62,6 +62,7 @@ php artisan migrate:status
 php artisan make:model NomeDoModel
 -> cria arquivo .php dentro de app\models
 
+---------- TINKER PARA MANIPULAR AS MODELS -------
 * A partir de um terminal (que tenha acesso php)
 Para Manipular Models:
 
@@ -83,7 +84,33 @@ NomeDaModel::all()
 $objeto->atributo = "valorDoAtributo";
     $objeto->save()
 
------- FIM MODEL/ TINKER -----
+6- Para recuperar um ou mais registros, baseado na PK
+    NomeDaModel::find(id)
+    NomeDaModel::find([id1, id2, id3])
+
+7- Para recuperar registros baseados em um atributo 
+    NomeDaModel::where('id', 1)->get()
+    NomeDaModel::where('id','>','1')->get()
+    NomeDaModel::where('nome', 'samsung')->get()
+    
+    NomeDaModel::whereBetween('id', [2,3])->get
+        -> retornará todos os registros no intervalo 2-3
+    
+    NomeDaModel::whereNotBetween('id',[2,3])
+        -> retornará todos os registros q não estão no intervalo 2-3
+
+    NomeDaModel::whereNoIn('id', [2,4])
+        -> retornará todos os registros que não têm id 2 ou 4. (não é intervalo!)
+
+    NomeDaModel::whereIn('id', [2,4])
+        -> retornará os registros que têm id 2 ou 4. (não é intervalo!)
+
+OBS: 1 - O where pode retornar uma colection, não 1 registro apenas (como o find('id')).
+Já que posso passar ('nome', 'a'), e ele irá retornar todos 
+os registros que possuem 'a' no nome. 
+2 - Pode ser passado os comparativos (virgula (interpretará como ==), <>, <, >, <=, >=)
+
+------ FIM TINKER -----
 
 
 

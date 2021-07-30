@@ -22,3 +22,9 @@ exit
 use\040\134App\134Models\134Marca
 $marca\040=\040Marca::create(["nome"=>"LG"])
 Marca::all()
+Marca::fa:find(1)
+Marca::find(1)
+Marca::find('id',1)->get()
+Marca::where('id',1)->get()
+Marca::where('nome','lg')->get()
+Marca::where('nome','LG')->get()
