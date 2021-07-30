@@ -42,10 +42,18 @@ OBS:o arquivo .env deve estar configurado com o nome do bando, usuário e senha
 Para desfazer a última migrate (que pode ter executado varias migrations simultaneamente)
 php artisan migrate:rollback 
 
+Para desfazer todas as migrations
+php artisan migrate: fresh
+OBS: não chamará o down(), mas sim dar um 
+DROP TABLE em todas as tabelas
+
 Para desfazer e refazer todas as migrates
 php artisan migrate:refresh 
-OBS: o método down() das migrations será chamado, 
-depois o método up() das mesmas.
+OBS: o método down() das migrations será chamado, para desfazer
+depois o método up() das mesmas, para refazer.
+
+Para visualizar as migrations:
+php artisan migrate:status
 
 ---------- FIM MIGRATIONS ------------------
 
