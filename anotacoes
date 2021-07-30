@@ -57,4 +57,11 @@ php artisan migrate:status
 
 ---------- FIM MIGRATIONS ------------------
 
+---------- MODEL ---------------
+Para criar um model 
+php artisan make:model NomeDoModel
+-> cria arquivo .php dentro de app\models
+
+
+
 
