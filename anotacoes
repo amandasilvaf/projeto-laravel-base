@@ -114,7 +114,25 @@ Where-> Pode ser passado os comparativos (virgula (interpretará como ==), <>, <
     $nome = Amanda;
     NomeDaModel::where('nome', 'like', "%$nome%")
 
------- FIM TINKER -----
+9 - BUSCANDO REGISTROS BASEADOS EM MAIS DE 1 atributo
+    
+    A)--> E - && 
+        NomeDaModel::where('id','>','1')->where('nome','LG')
+    
+    B)--> OU - || 
+        NomeDaModel::Where('id','1')->orWhere('nome','LG')
+
+    C) (condicao OR condicao) AND (condicao OR condicao)
+        (id>1 and id<4) and (name=lg or name=apple)
+
+    PASSO 1 - armazenar o resultado do primeiro parênteses:
+        Marca::where( function($query){ $query-> where('id', '>',1)->where('id','<',4);})->get()
+    
+    PASSO 2- continuar, agora concatenando e resolvendo o segundo parênteses
+        Marca::where( function($query){ $query-> where('id', '>',1)->where('id','<',4);})->where( function($query){$query-> where('nome','LG')->orWhere('nome','apple');})->get()
+
+    
+    ------ FIM TINKER -----
 
 
 
