@@ -174,14 +174,16 @@ NomeDaModel::all()->chunk(2)
 Se eu quisesse retornar de 3 em 3
 NomeDaModel::all()->chunk(3) 
 
+12- Atualizando registros
+    * $objeto = NomeDaModel::find(id)
+    * $objeto->atributo = "valorDoAtributo"
+    * $objeto->save()
 
-    ------ FIM TINKER -----
+    OU
 
-
-
-
-
-
+   $objeto = NomeDaModel::find(id)
+   $objeto->fill(['nome'=>'sonic'])
+   $objeto->save()fill(['nome'=>'sonic'])
 
 
 
