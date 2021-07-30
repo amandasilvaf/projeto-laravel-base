@@ -105,10 +105,14 @@ $objeto->atributo = "valorDoAtributo";
     NomeDaModel::whereIn('id', [2,4])
         -> retornará os registros que têm id 2 ou 4. (não é intervalo!)
 
-OBS: 1 - O where pode retornar uma colection, não 1 registro apenas (como o find('id')).
-Já que posso passar ('nome', 'a'), e ele irá retornar todos 
-os registros que possuem 'a' no nome. 
-2 - Pode ser passado os comparativos (virgula (interpretará como ==), <>, <, >, <=, >=)
+Where-> Pode ser passado os comparativos (virgula (interpretará como ==), <>, <, >, <=, >=)
+
+8 - Consultando com o like
+        A) Passando o valor no parâmetro
+    NomeDaModel::where('nome', 'like', '%e%')
+        B) Passando uma variável no parâmetro
+    $nome = Amanda;
+    NomeDaModel::where('nome', 'like', "%$nome%")
 
 ------ FIM TINKER -----
 
