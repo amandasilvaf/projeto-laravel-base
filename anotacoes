@@ -137,6 +137,43 @@ Where-> Pode ser passado os comparativos (virgula (interpretará como ==), <>, <
     NomeDaModel::orderBy('nome','desc')->get()   -> Z - A
     NomeDaModel::where('id','>',1)->orderBy('nome','desc')->get()
 
+11 - Trabalhando com Collections
+
+* Para recuperar o 1o elemento
+NomeDaModel::all()->first()
+
+* Para recuperar o último elemento
+NomeDaModel::all()->last()
+
+* Para inverter a ordem dos elementos
+NomeDaModel::all()->reverse()
+
+* Para recuperar um atributo de todos os elementos
+NomeDaModel::all()->pluck('nome')
+ -> retorna o atributo nome de cada NomeDaModel
+
+NomeDaModel::all()->pluck('nome')->toArray()
+NomeDaModel::all()->pluck('nome')->toJson() 
+NomeDaModel::all()->random()
+
+* Para retornar a média númerica 
+NomeDaModel::all()->avg('atributo numerico')
+
+* Para retornar o máximo e o mínimo
+NomeDaModel::all()->max('atributo numerico')
+NomeDaModel::all()->min('atributo numerico')
+
+* Para retornar a soma
+NomeDaModel::all()->sum('atributo numerico')
+
+* Para retornar a collection agrupada por um número x
+Exemplo: Minha collection de Marcas possui 1 elementos, 
+se eu quisesse retornar de 2 em 2:
+NomeDaModel::all()->chunk(2)
+
+Se eu quisesse retornar de 3 em 3
+NomeDaModel::all()->chunk(3) 
+
 
     ------ FIM TINKER -----
 
