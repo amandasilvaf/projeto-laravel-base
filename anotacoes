@@ -58,9 +58,37 @@ php artisan migrate:status
 ---------- FIM MIGRATIONS ------------------
 
 ---------- MODEL ---------------
-Para criar um model 
+* Para criar um model 
 php artisan make:model NomeDoModel
 -> cria arquivo .php dentro de app\models
+
+* A partir de um terminal (que tenha acesso php)
+Para Manipular Models:
+
+1- php artisan tinker (ambiente de terminal para interagir com a aplicação laravel)
+
+2- Para selecionar a Model
+use \App\Models\NomeDaModel
+
+3- Para listar os registros (array) 
+NomeDaModel::all()
+
+4- Para instanciar a Model 
+   $objeto = new NomeDaModel
+   $objeto->save()
+   (cria vazio) ou
+   $objeto = NomeDaModel::create(["nome"=>"LG"]) 
+
+5- Para atribuir valor a um atributo. 
+$objeto->atributo = "valorDoAtributo";
+    $objeto->save()
+
+------ FIM MODEL/ TINKER -----
+
+
+
+
+
 
 
 
