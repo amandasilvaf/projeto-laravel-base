@@ -192,5 +192,20 @@ NomeDaModel::destroy(id)
 Deletando mais de 1 registro:
 NomeDaModel::where('id','>',2)->delete()
 
+14 - SOFT delete
+Soft delete é uma técnica de excluir um registro, mas 
+não eliminando-o da tabela.
+
+$marcas = Marca::all()
+$marcas[index]->delete()
+$marcas[index]->forceDelete()
+
+Para saber se um registro foi apagado (com soft delete)
+$marcas[index]->trashed()
+    -> vai retornar um booleano. 
+
+Para retornar os excluídos:
+$marcas = Marca::onlyTrashed()->get()
+
 
 ------------- FIM TINKER ------------

@@ -16,6 +16,7 @@ class CreateMarcas extends Migration
         Schema::create('marcas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
