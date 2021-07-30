@@ -178,12 +178,19 @@ NomeDaModel::all()->chunk(3)
     * $objeto = NomeDaModel::find(id)
     * $objeto->atributo = "valorDoAtributo"
     * $objeto->save()
-
     OU
-
    $objeto = NomeDaModel::find(id)
    $objeto->fill(['nome'=>'sonic'])
-   $objeto->save()fill(['nome'=>'sonic'])
+   $objeto->save()
+
+13- Deletando 1 registro:
+$obj = NomeDaModel::find(id)
+$obj->delete() 
+OU
+NomeDaModel::destroy(id)
+
+Deletando mais de 1 registro:
+NomeDaModel::where('id','>',2)->delete()
 
 
-
+------------- FIM TINKER ------------
