@@ -131,7 +131,13 @@ Where-> Pode ser passado os comparativos (virgula (interpretará como ==), <>, <
     PASSO 2- continuar, agora concatenando e resolvendo o segundo parênteses
         Marca::where( function($query){ $query-> where('id', '>',1)->where('id','<',4);})->where( function($query){$query-> where('nome','LG')->orWhere('nome','apple');})->get()
 
-    
+10 - Ordenando Resultados
+
+    NomeDaModel::orderBy('nome')->get()   -> A - Z
+    NomeDaModel::orderBy('nome','desc')->get()   -> Z - A
+    NomeDaModel::where('id','>',1)->orderBy('nome','desc')->get()
+
+
     ------ FIM TINKER -----
 
 
