@@ -175,14 +175,6 @@ Route::get('/enderecos', function() {
     
 });
 
-Route::get('/clientess/json', function() {
-
-    //return Cliente::all()->toJson(); // Retornaria sem o endereço, Lazy Loading!
-    $clientes = Cliente::with(['endereco'])->get(); // agora sim com o o endereco. Eager Loading
-    return $clientes->toJson(); 
-});
-
-
 Route::get('/inserir', function() {
     $c = new Cliente();
     $c->nome = "Amanda Ferreira";
@@ -215,4 +207,17 @@ Route::get('/inserir', function() {
     $c->endereco()->save($e);
 });
 
+
+Route::get('/clientess/json', function() {
+
+    //return Cliente::all()->toJson(); // Retornaria sem o endereço, Lazy Loading!
+    $clientes = Cliente::with(['endereco'])->get(); // agora sim com o o endereco. Eager Loading
+    return $clientes->toJson(); 
+});
+
+Route::get('/enderecoss/json', function() {
+
+    $enderecos = Endereco::with(['cliente'])->get(); 
+    return $enderecos->toJson(); 
+});
 
