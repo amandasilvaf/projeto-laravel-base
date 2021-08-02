@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Cliente;
+use App\Models\Endereco;
 
 
 /*
@@ -136,3 +137,74 @@ Route::get('opcoes/{opcao?}', function($opcao=null) {
 Route::get('bootstrap', function() {
     return view('outras.exemploBootstrap');
 });
+
+
+Route::get('/clientes', function() {
+    $clientes = Cliente::all();
+    foreach($clientes as $c){
+        echo "<p>ID: " . $c->id . "</p>";
+        echo "<p>Nome: " . $c->nome . "</p>";
+        echo "<p>Telefone: " . $c->telefone . "</p>";
+        echo "<p>Rua: " . $c->endereco->rua . "</p>";
+        echo "<p>Número: " . $c->endereco->numero . "</p>";
+        echo "<p>Bairro: " . $c->endereco->bairro . "</p>";
+        echo "<p>Cidade: " . $c->endereco->cidade . "</p>";
+        echo "<p>Estado: " . $c->endereco->estado . "</p>";
+        echo "<p>CEP: " . $c->endereco->cep . "</p>";
+        echo "<hr>";
+    }
+});
+
+
+
+Route::get('/enderecos', function() {
+    $ends = Endereco::all();
+    foreach ($ends as $e){
+        echo "<p>ID: " . $e->cliente_id . "</p>";
+        echo "<p>Nome: " . $e->cliente->nome . "</p>";
+        echo "<p>Telefone: " . $e->cliente->telefone . "</p>";
+        echo "<p>Rua: " . $e->rua . "</p>";
+        echo "<p>Número: " . $e->numero . "</p>";
+        echo "<p>Bairro: " . $e->bairro . "</p>";
+        echo "<p>Cidade: " . $e->cidade . "</p>";
+        echo "<p>Estado: " . $e->estado . "</p>";
+        echo "<p>CEP: " . $e->cep . "</p>";
+        echo "<hr>";
+
+    }
+    
+});
+
+
+Route::get('/inserir', function() {
+    $c = new Cliente();
+    $c->nome = "Amanda Ferreira";
+    $c->telefone="44998989898";
+    $c->save();
+
+    $e = new Endereco();
+    $e->rua = "Rua A";
+    $e->numero = 2211;
+    $e->bairro = "Porto Madero";
+    $e->cidade = "Umuarama";
+    $e->uf = "pr";
+    $e->cep = "87504-590";
+    
+    $c->endereco()->save($e);
+
+    $c = new Cliente();
+    $c->nome = "Geovani Pereira";
+    $c->telefone="44998989898";
+    $c->save();
+
+    $e = new Endereco();
+    $e->rua = "Rua A";
+    $e->numero = 2211;
+    $e->bairro = "Porto Madero";
+    $e->cidade = "Umuarama";
+    $e->uf = "pr";
+    $e->cep = "87504-590";
+    
+    $c->endereco()->save($e);
+});
+

@@ -12,3 +12,4 @@ docker ps
 exit;
 echo "Ola, Mundo"
 exit
+exit
