@@ -9,6 +9,7 @@ class Cliente extends Model
 {
 
     use HasFactory;
+    
     protected $fillable = ['nome','telefone'];
     
     public function endereco(){

@@ -175,6 +175,13 @@ Route::get('/enderecos', function() {
     
 });
 
+Route::get('/clientess/json', function() {
+
+    //return Cliente::all()->toJson(); // Retornaria sem o endereço, Lazy Loading!
+    $clientes = Cliente::with(['endereco'])->get(); // agora sim com o o endereco. Eager Loading
+    return $clientes->toJson(); 
+});
+
 
 Route::get('/inserir', function() {
     $c = new Cliente();
@@ -207,4 +214,5 @@ Route::get('/inserir', function() {
     
     $c->endereco()->save($e);
 });
+
 
