@@ -309,3 +309,5 @@ Route::get('/adicionarproduto/{cat}', function($catid) {
     $cat->load('produto');
     return $cat->toJson();
 });
+
+
