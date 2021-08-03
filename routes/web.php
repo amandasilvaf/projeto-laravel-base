@@ -264,7 +264,7 @@ Route::get('/categoriaprodutos', function() {
 
 
 Route::get('/categoriaprodutos/json', function() {
-    $cats = Categoria::with('produtos')->get();
+    $cats = Categoria::with('produto')->get();
     return $cats->toJson();
 });
 
@@ -292,4 +292,20 @@ Route::get('/removerprodutocategoria', function() {
     else{
         return "Não há produto com o ID passado como parâmetro";
     }
+});
+
+
+Route::get('/adicionarproduto/{cat}', function($catid) {
+    $cat = Categoria::with('produto')->find($catid);
+
+    $p = new Produto();
+    $p->nome = "Colar de pérolas";
+    $p->estoque = 5;
+    $p->valor_atual = 300;
+
+    if(isset($cat)){
+        $cat->produto()->save($p);
+    }
+    $cat->load('produto');
+    return $cat->toJson();
 });
