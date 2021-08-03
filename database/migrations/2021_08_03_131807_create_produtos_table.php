@@ -16,7 +16,7 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->float('valor-atual');
+            $table->float('valor_atual');
             $table->integer('estoque');
             $table->foreignId('categoria_id')->nullable()->constrained('categorias');
             // $table->unsignedBigInteger('categoria_id');

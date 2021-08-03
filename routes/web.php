@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Cliente;
 use App\Models\Endereco;
+use App\Models\Produto;
+use App\Models\Categoria;
 
 
 /*
@@ -219,5 +221,44 @@ Route::get('/enderecoss/json', function() {
 
     $enderecos = Endereco::with(['cliente'])->get(); 
     return $enderecos->toJson(); 
+});
+
+
+Route::get('/categorias', function() {
+    $cats = Categoria::all();
+    foreach($cats as $c){
+        echo "<p>  {$c->id}   -   {$c->nome}  </p>";
+    }
+});
+
+Route::get('/produtos', function() {
+    $prods = Produto::all();
+    echo "<table>";
+    echo "<thead><tr><td>Nome</td><td>Estoque</td><td>Valor</td><td>Categoria</tr></thead>";
+
+    foreach($prods as $p){
+        echo "<tr>";
+        echo "<td> {$p->nome} </td>";
+        echo "<td> {$p->estoque} </td>";
+        echo "<td> {$p->valor_atual} </td>";
+        echo "<td> {$p->categoria->nome} </td>";
+        echo "</tr>";    
+    }
+});
+
+Route::get('/categoriaprodutos', function() {
+    $cats = Categoria::all();
+    foreach($cats as $c){
+        echo "<p>  {$c->id}   -   {$c->nome}  </p>";
+        $produtos = $c->produtos;
+
+        if(count($produtos)){
+            echo "<ul>";
+            foreach($produtos as $p){
+                echo "<li> {$p->nome} </li>";
+            }
+            echo "</ul>";
+        }
+    }
 });
 
