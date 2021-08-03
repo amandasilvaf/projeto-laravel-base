@@ -269,4 +269,15 @@ Route::get('/categoriaprodutos/json', function() {
 });
 
 
+Route::get('/adicionarproduto', function() {
+    $cat = Categoria::find(1);
+    $p = new Produto();
+    $p->nome = "Calca Jeans Pittbul";
+    $p->estoque = 20;
+    $p->valor_atual = 350;
+    $p->categoria()->associate($cat);
+    $p->save();
+    return $p->toJson();
+});
+
 

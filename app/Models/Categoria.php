@@ -9,7 +9,7 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    function produtos(){
+    function produto(){
         return $this->hasMany(Produto::class);
     }
         
