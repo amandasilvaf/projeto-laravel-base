@@ -281,3 +281,15 @@ Route::get('/adicionarproduto', function() {
 });
 
 
+
+Route::get('/removerprodutocategoria', function() {
+    $p = Produto::find(1);
+    if(isset($p)){
+        $p->categoria()->dissociate();
+        $p->save();
+        return $p->toJson();
+    }
+    else{
+        return "Não há produto com o ID passado como parâmetro";
+    }
+});
