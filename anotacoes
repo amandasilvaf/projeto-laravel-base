@@ -209,3 +209,19 @@ $marcas = Marca::onlyTrashed()->get()
 
 
 ------------- FIM TINKER ------------
+
+--------- SEEDERS ---------------
+Para popular tabelas
+
+Criando um seeder:
+php artisan make:seeder NomeDoSeeder
+
+Para executar:
+php artisan db:seed (executa o arquivo DatabaseSeeder.php)
+ou
+php artisan db:seed --class=NomeDaClassSeeder (para executar uma classe seeder expecífica)
+exemplo: php artisan db:seed --class=CategoriaSeeder
+
+para Reconstruir completamente o banco, desfazendo e refazendo as migrations e executando as seeders:
+php artisan migrate:fresh --seed 
+
