@@ -262,3 +262,11 @@ Route::get('/categoriaprodutos', function() {
     }
 });
 
+
+Route::get('/categoriaprodutos/json', function() {
+    $cats = Categoria::with('produtos')->get();
+    return $cats->toJson();
+});
+
+
+
