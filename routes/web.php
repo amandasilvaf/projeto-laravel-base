@@ -340,3 +340,29 @@ Route::get('/desenvolvedor_projeto', function() {
 });
 
 
+Route::get('/projeto_desenvolvedor', function() {
+    $projetos = Projeto::with('desenvolvedores')->get();
+    //return $projetos->toJson();
+
+    foreach($projetos as $p){
+        echo "Nome do Projeto: {$p->nome} <br>";
+        echo "Horas previstas: {$p->horas_previstas} <br>";
+        if(count($p->desenvolvedores) > 0){
+            echo "Desenvolvedores: <br>";
+            echo "<ol>";
+            foreach($p->desenvolvedores as $dev){
+                echo "<li>";
+                echo "Nome: {$dev->nome} <br>";
+                echo "Horas trabalhadas: {$dev->pivot->horas_trabalhadas}<br>";
+                echo "</li>";
+            }
+            echo "</ol>";
+            echo "<hr>";
+        }
+
+    }
+    
+});
+
+
+
