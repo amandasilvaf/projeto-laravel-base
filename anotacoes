@@ -225,4 +225,3 @@ exemplo: php artisan db:seed --class=CategoriaSeeder
 para Reconstruir completamente o banco, desfazendo e refazendo as migrations e executando as seeders:
 php artisan migrate:fresh --seed 
 
-Teste

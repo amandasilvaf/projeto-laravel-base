@@ -6,6 +6,9 @@ use App\Models\Cliente;
 use App\Models\Endereco;
 use App\Models\Produto;
 use App\Models\Categoria;
+use App\Models\Desenvolvedor;
+use App\Models\Projeto;
+use App\Models\Alocacao;
 
 
 /*
@@ -308,6 +311,31 @@ Route::get('/adicionarproduto/{cat}', function($catid) {
     }
     $cat->load('produto');
     return $cat->toJson();
+});
+
+
+Route::get('/desenvolvedor_projeto', function() {
+    $devs = Desenvolvedor::with('projetos')->get();
+    //return $devs->toJson();
+
+    foreach($devs as $dev){
+        echo "<p>Nome do desenvolvedor: {$dev->nome}</p>";
+        echo "<p>Cargo: {$dev->cargo}</p>";
+        if(count($dev->projetos) > 0){
+            echo "Projetos: <br>";
+            echo "<ul>";
+            foreach($dev->projetos as $p){
+                echo "<li>";
+                echo "Nome: {$p->nome} <br>";
+                echo "Horas previstas: {$p->horas_previstas} <br><br>";
+                echo "</li>";
+            }
+            echo "</ul>";
+        }
+        echo "<hr>";
+
+    }
+
 });
 
 

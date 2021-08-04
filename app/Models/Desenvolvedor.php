@@ -9,4 +9,8 @@ class Desenvolvedor extends Model
 {
     protected $table = 'desenvolvedores';
     use HasFactory;
+
+    function projetos(){
+        return $this->belongsToMany(Projeto::class, 'alocacoes');
+    }
 }
