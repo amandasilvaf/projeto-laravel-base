@@ -314,7 +314,7 @@ Route::get('/adicionarproduto/{cat}', function($catid) {
 });
 
 
-Route::get('/desenvolvedor_projeto', function() {
+Route::get('/desenvolvedor_projetos', function() {
     $devs = Desenvolvedor::with('projetos')->get();
     //return $devs->toJson();
 
@@ -326,7 +326,7 @@ Route::get('/desenvolvedor_projeto', function() {
             echo "<ul>";
             foreach($dev->projetos as $p){
                 echo "<li>";
-                echo "Nome: {$p->nome} <br>";
+                echo "Nome: {$p1->nome} <br>";
                 echo "Horas previstas: {$p->horas_previstas} <br>";
                 echo "Horas trabalhadas: {$p->pivot->horas_trabalhadas} <br><br>";
                 echo "</li>";
@@ -340,7 +340,7 @@ Route::get('/desenvolvedor_projeto', function() {
 });
 
 
-Route::get('/projeto_desenvolvedor', function() {
+Route::get('/projeto_desenvolvedores', function() {
     $projetos = Projeto::with('desenvolvedores')->get();
     //return $projetos->toJson();
 
@@ -353,7 +353,8 @@ Route::get('/projeto_desenvolvedor', function() {
             foreach($p->desenvolvedores as $dev){
                 echo "<li>";
                 echo "Nome: {$dev->nome} <br>";
-                echo "Horas trabalhadas: {$dev->pivot->horas_trabalhadas}<br>";
+                echo "Cargo: {$dev->cargo} <br>";
+                echo "Horas trabalhadas: {$dev->pivot->horas_trabalhadas}<br><br>";
                 echo "</li>";
             }
             echo "</ol>";
@@ -365,4 +366,15 @@ Route::get('/projeto_desenvolvedor', function() {
 });
 
 
+Route::get('/alocar_devs', function() {
+    $proj = Projeto::find(3); // que é o projeto que ainda não possui devs
+    if(isset($proj)){
+       // $proj->desenvolvedores()->attach(1, ['horas_trabalhadas' => 50]); PARA ADICIONAR 1 REGISTRO
+       $proj->desenvolvedores()->attach([
+            2 => ['horas_trabalhadas' => 20],
+            3 => ['horas_trabalhadas' => 30],
+       ]); // PARA ADD + DE 1 REGISTRO EM UMA ÚNICA REQUISIÇÃO!
+    }
+
+});
 
