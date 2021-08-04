@@ -375,6 +375,12 @@ Route::get('/alocar_devs', function() {
             3 => ['horas_trabalhadas' => 30],
        ]); // PARA ADD + DE 1 REGISTRO EM UMA ÚNICA REQUISIÇÃO!
     }
+});
 
+Route::get('/desalocar_devs', function() {
+    $proj = Projeto::find(3); 
+    if(isset($proj)){
+       $proj->desenvolvedores()->detach([1, 2, 3]); 
+    }
 });
 
