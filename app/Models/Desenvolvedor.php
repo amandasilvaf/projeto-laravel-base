@@ -11,6 +11,6 @@ class Desenvolvedor extends Model
     use HasFactory;
 
     function projetos(){
-        return $this->belongsToMany(Projeto::class, 'alocacoes');
+        return $this->belongsToMany(Projeto::class, 'alocacoes')->withPivot('horas_trabalhadas');
     }
 }
